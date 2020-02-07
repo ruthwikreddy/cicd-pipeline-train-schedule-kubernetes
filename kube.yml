@@ -3,12 +3,12 @@ apiVersion: v1
 metadata:
   name: train-schedule-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: train-schedule
   ports:
-    port: 9090
-    name: train-schedule
+  - port: 80
+    
 
 ---
 
