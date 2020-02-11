@@ -2,9 +2,9 @@ kind: Service
 apiVersion: v1
 metadata:
   labels:
-     app: train-schedule
-    name: train-schedule-service
-    namespace: default
+    app: train-schedule
+  name: train-schedule-service
+  namespace: default
 spec:
   type: LoadBalancer
   selector:
