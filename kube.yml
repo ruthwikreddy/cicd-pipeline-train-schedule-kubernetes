@@ -18,7 +18,7 @@ metadata:
   name: train-schedule-ingress
 spec:
   rules:
-  - host: trainschedulesvc.ingress.eecluster.cpet.shoot.canary.k8s-hana.ondemand.com
+  - host: trainscheduler.kube.dev.com
     http:
       paths:
       - backend:
@@ -43,7 +43,6 @@ spec:
       labels:
         app: train-schedule
     spec:
-      hostnetwork: true
       containers:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
