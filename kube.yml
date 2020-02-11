@@ -23,7 +23,7 @@ spec:
       paths:
       - backend:
           serviceName: train-schedule-svc
-          servicePort: 80
+          servicePort: 8080
     
     
 ---
