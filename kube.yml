@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: train-schedule-svc
+  name: train-schedule-service
 spec:
   type: NodePort
   selector:
@@ -9,24 +9,10 @@ spec:
   ports:
   - protocol: TCP
     port: 8080
-    
+    nodePort: 32000
 
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: train-schedule-ingress
-spec:
-  rules:
-  - host: trainscheduler.kube.dev.com
-    http:
-      paths:
-      - backend:
-          serviceName: train-schedule-svc
-          servicePort: 8080
-    
-    
----
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
