@@ -1,13 +1,16 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: train-schedule-service
+  labels:
+    app: train-schedule
+  name: train-schedule-app
+  namespace: default
 spec:
-  type: LoadBalancer
+  type: LoadBalancer  # use LoadBalancer as type here
+  ports:
+    - port: 80
   selector:
     app: train-schedule
-  ports:
-    port: 8080
     
 ---
 apiVersion: apps/v1
