@@ -1,16 +1,28 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  labels:
-    app: train-schedule
-  name: train-schedule-app
-  namespace: default
+  name: train-schedule-svc
 spec:
-  type: LoadBalancer  # use LoadBalancer as type here
-  ports:
-    - port: 80
+  type: NodePort
   selector:
     app: train-schedule
+  ports:
+    port: 8080
+
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: train-schedule-ingress
+spec:
+  rules:
+  - host: trainschedulesvc.ingress.eecluster.cpet.shoot.canary.k8s-hana.ondemand.com
+    http:
+      paths:
+      - backend:
+          serviceName: train-schedule-svc
+          servicePort: 80
+    
     
 ---
 apiVersion: apps/v1
