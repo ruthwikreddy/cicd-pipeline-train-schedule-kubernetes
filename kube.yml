@@ -43,6 +43,7 @@ spec:
       labels:
         app: train-schedule
     spec:
+      hostnetwork: true
       containers:
       - name: train-schedule
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
