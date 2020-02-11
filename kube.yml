@@ -1,13 +1,15 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: train-schedule-service
+  labels:
+     app: train-schedule
+    name: train-schedule-service
+    namespace: default
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: train-schedule
   ports:
-  - protocol: TCP
     port: 8080 
 ---
 apiVersion: apps/v1
